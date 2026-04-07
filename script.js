@@ -15,7 +15,7 @@ cardInner.addEventListener("click", () => {
     if (resposta_usuario.value.trim() === "") {
         alert("Coloque uma resposta antes de virar o card")
     }
-    else if (resposta_usuario.value.trim() === charadaAtual.resposta.trim().toLowerCase() ) {
+    else if (resposta_usuario.value.trim().toLowerCase() === charadaAtual.resposta.trim().toLowerCase() ) {
         cardInner.classList.toggle("[transform:rotateY(180deg)]")
     }
     else{
