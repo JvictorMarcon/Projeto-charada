@@ -51,6 +51,7 @@ async function buscarCharada() {
     }
 }
 
+// Função que pega a resposta do usuário e verifica se está correta ou não
 function verificarCharada() {
     // Pegamos o que o usuário digitou
     const chute = resposta_usuario.value.trim()
@@ -58,7 +59,7 @@ function verificarCharada() {
     // Comparamos o chute com a resposta que guardamos lá no passo 2
     if (chute.toLowerCase() === charadaAtual.resposta.toLowerCase()) {
         alert("Acertou! 🎉")
-        pontos_usuario += 1
+        pontos_usuario += 1 
         contador.innerText = pontos_usuario
         buscarCharada()
     } else {
