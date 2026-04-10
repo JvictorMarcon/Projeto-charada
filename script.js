@@ -19,7 +19,7 @@ cardInner.addEventListener("click", () => {
         cardInner.classList.toggle("[transform:rotateY(180deg)]")
         setTimeout(()=>{
             cardInner.classList.toggle("[transform:rotateY(180deg)]")
-        },2000)
+        },1000)
         
     }
 
