@@ -17,10 +17,12 @@ cardInner.addEventListener("click", () => {
     }
     else if (resposta_usuario.value.trim().toLowerCase() === charadaAtual.resposta.trim().toLowerCase()) {
         cardInner.classList.toggle("[transform:rotateY(180deg)]")
+        setTimeout(()=>{
+            cardInner.classList.toggle("[transform:rotateY(180deg)]")
+        },2000)
+        
     }
-    else {
 
-    }
 
 })
 // Evento que faz buscar outra charada
