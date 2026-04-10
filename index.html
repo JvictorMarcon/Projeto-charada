@@ -5,51 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Gerador de Charadas</title>
+    <title>Enigma do Charada</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+        
+        body {
+            font-family: 'Special+Elite', Courier, serif;
+            background-color: #050505;
+            background-image: radial-gradient(#1a4d1a 0.5px, transparent 0.5px);
+            background-size: 20px 20px; /* Efeito de textura de fundo */
+        }
+
+        .riddle-font {
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        /* Efeito de brilho neon verde */
+        .neon-border {
+            box-shadow: 0 0 15px #22c55e, inset 0 0 5px #22c55e;
+        }
+    </style>
 </head>
 
-<body class="bg-blue-100 flex flex-col items-center justify-center min-h-screen p-4">
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
 
-    <h1 class="text-3xl text-bold mb-12">Gerador de Charadas</h1>
+    <h1 class="text-5xl font-black mb-12 text-green-500 uppercase tracking-tighter riddle-font">
+        Gerador de <span class="text-purple-600">Charadas</span>
+    </h1>
 
-    <div class="group w-full max-w-sm [perspective:1000px] h-64">
+    <div class="group w-full max-w-md [perspective:1000px] h-72">
         <div id="card-inner"
-            class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] cursor-pointer shadow-2xl rounded-2xl">
+            class="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] cursor-pointer rounded-2xl">
 
             <div
-                class="absolute inset-0 [backface-visibility:hidden] bg-white rounded-2xl flex flex-col items-center justify-center p-6 text-center border-2 border-blue-500">
-                <span class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-2">Pergunta</span>
-                <p id="pergunta" class="text-2xl font-medium text-gray-800 italic">Carregando charada...</p>
-                <p class="mt-4 text-gray-400 text-xs font-light">Clique para ver a resposta</p>
+                class="absolute inset-0 [backface-visibility:hidden] bg-green-600 rounded-2xl flex flex-col items-center justify-center p-8 text-center border-4 border-black neon-border">
+                <div class="absolute top-2 left-4 text-4xl opacity-20 text-black font-bold">?</div>
+                <div class="absolute bottom-2 right-4 text-4xl opacity-20 text-black font-bold">?</div>
+                
+                <span class="text-black font-black uppercase tracking-widest text-sm mb-4 bg-green-400 px-2">O Enigma</span>
+                <p id="pergunta" class="text-2xl font-bold text-black leading-tight">Carregando pergunta de Edward Nygma...</p>
+                <p class="mt-6 text-green-900 text-xs font-bold animate-pulse">CLIQUE SE TIVER CORAGEM</p>
             </div>
 
             <div
-                class="absolute inset-0 [backface-visibility:hidden] bg-blue-600 rounded-2xl flex flex-col items-center justify-center p-6 text-center text-white [transform:rotateY(180deg)]">
-                <span class="text-blue-200 font-bold uppercase tracking-widest text-xs mb-2">Resposta</span>
-                <p id="resposta" class="text-2xl font-bold"></p>
+                class="absolute inset-0 [backface-visibility:hidden] bg-purple-800 rounded-2xl flex flex-col items-center justify-center p-8 text-center text-white [transform:rotateY(180deg)] border-4 border-green-500">
+                <span class="text-purple-300 font-bold uppercase tracking-widest text-xs mb-2">Você é mais esperto que o Batman?</span>
+                <p id="resposta" class="text-3xl font-black text-green-400 drop-shadow-md"></p>
             </div>
 
         </div>
     </div>
 
     <button id="btn-nova"
-        class="mt-8 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-transform active:scale-95 shadow-lg">
-        Nova Charada 🎲
+        class="mt-10 bg-green-500 hover:bg-green-400 text-black font-black py-4 px-10 rounded-none transform -skew-x-12 transition-all hover:scale-105 border-b-4 border-green-800 shadow-xl">
+        PRÓXIMO DESAFIO 🎲
     </button>
-    <p class="mt-4 text-2xl">Pontos: <span id="contador"></span></p> 
-    <div class="mt-8 flex flex-col sm:flex-row gap-2 w-full max-w-sm">
+
+    <p class="mt-6 text-green-500 text-2xl font-bold">
+        QI: <span id="contador" class="text-white">0</span>
+    </p> 
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-0 w-full max-w-md">
         <input type="text" id="resposta_usuario"
-            class="flex-1 bg-white border-2 border-blue-200 focus:border-blue-500 outline-none font-medium text-center py-3 px-6 rounded-full transition-all shadow-md"
-            placeholder="Insira a resposta">
+            class="flex-1 bg-zinc-900 border-2 border-green-500 text-green-400 focus:ring-2 focus:ring-purple-500 outline-none font-bold py-4 px-6 transition-all"
+            placeholder="Tente adivinhar...">
 
         <button id="btn-confirmar"
-            class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition-transform active:scale-95 shadow-lg">
-            Confirmar
+            class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-4 px-8 transition-all active:bg-purple-900 border-2 border-green-500 sm:border-l-0">
+            RESPONDER
         </button>
-
     </div>
+
     <script src="script.js"></script>
 
 </body>
-
 </html>
