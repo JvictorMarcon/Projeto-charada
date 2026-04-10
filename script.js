@@ -15,11 +15,11 @@ cardInner.addEventListener("click", () => {
     if (resposta_usuario.value.trim() === "") {
         alert("Coloque uma resposta antes de virar o card")
     }
-    else if (resposta_usuario.value.trim().toLowerCase() === charadaAtual.resposta.trim().toLowerCase() ) {
+    else if (resposta_usuario.value.trim().toLowerCase() === charadaAtual.resposta.trim().toLowerCase()) {
         cardInner.classList.toggle("[transform:rotateY(180deg)]")
     }
-    else{
-        
+    else {
+
     }
 
 })
@@ -33,7 +33,9 @@ btnConfirmar.addEventListener("click", verificarCharada)
 // Função que irá buscar as charadas no backend
 async function buscarCharada() {
     try {
-
+        campoPergunta.textContent = "Buscando charada, espere um momento..."
+        campoResposta.textContent = ""
+        
         const url = "https://apicharadasbackend.vercel.app/charadas/random"
         const answerAPI = await fetch(url)
         const data = await answerAPI.json()
